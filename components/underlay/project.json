@@ -1,0 +1,24 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "underlay",
+	"tags": ["component", "legacy"],
+	"targets": {
+		"build": {
+			"defaultConfiguration": "legacy"
+		},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/underlay"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/underlay"
+			}
+		},
+		"watch": {}
+	}
+}

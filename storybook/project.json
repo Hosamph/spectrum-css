@@ -1,0 +1,55 @@
+{
+	"name": "storybook",
+	"tags": ["tooling", "website"],
+	"namedInputs": {
+		"default": [
+			"{workspaceRoot}/assets/**",
+			"{workspaceRoot}/decorators/**",
+			"{workspaceRoot}/*.js",
+			"{workspaceRoot}/*.html",
+			"{projectRoot}/components/*/stories/**"
+		]
+	},
+	"targets": {
+		"clean": {
+			"inputs": ["{workspaceRoot}/storybook-static/**"],
+			"outputs": []
+		},
+		"build": {
+			"dependsOn": [
+				{
+					"projects": ["tag:component"],
+					"target": "build"
+				}
+			],
+			"inputs": ["default"],
+			"outputs": ["{options.outputDir}"],
+			"executor": "@nx/storybook:build",
+			"options": {
+				"outputDir": "{workspaceRoot}/storybook-static",
+				"configDir": "{projectRoot}/storybook"
+			}
+		},
+		"start": {
+			"dependsOn": [
+				{
+					"projects": ["tag:component"],
+					"target": "build"
+				}
+			],
+			"inputs": ["default"],
+			"executor": "@nx/storybook:storybook",
+			"options": {
+				"port": 3000,
+				"configDir": "{projectRoot}/storybook",
+				"docsMode": true
+			}
+		},
+		"test": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "chromatic --build-script-name build --junit-report"
+			}
+		}
+	}
+}

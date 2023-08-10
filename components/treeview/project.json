@@ -1,0 +1,24 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "treeview",
+	"tags": ["component", "legacy"],
+	"targets": {
+		"build": {
+			"defaultConfiguration": "legacy"
+		},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/treeview"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/treeview"
+			}
+		},
+		"watch": {}
+	}
+}

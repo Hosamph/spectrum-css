@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "divider",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/divider"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/divider"
+			}
+		},
+		"watch": {}
+	}
+}

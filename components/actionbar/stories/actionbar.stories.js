@@ -7,8 +7,9 @@ import { default as ActionButton } from "@spectrum-css/actionbutton/stories/acti
 
 export default {
 	title: "Components/Action bar",
-	description: "The Action bar component is a floating full width bar that appears upon selection",
-	component: "Actionbar",
+	description:
+		"The Action bar component is a floating full width bar that appears upon selection",
+	component: "ActionBar",
 	argTypes: {
 		isOpen: {
 			name: "Open",

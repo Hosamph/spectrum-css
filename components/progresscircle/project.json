@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "progresscircle",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/progresscircle"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/progresscircle"
+			}
+		},
+		"watch": {}
+	}
+}

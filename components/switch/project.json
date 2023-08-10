@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "switch",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/switch"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/switch"
+			}
+		},
+		"watch": {}
+	}
+}

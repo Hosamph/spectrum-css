@@ -1,0 +1,24 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "searchwithin",
+	"tags": ["component", "legacy"],
+	"targets": {
+		"build": {
+			"defaultConfiguration": "legacy"
+		},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/searchwithin"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/searchwithin"
+			}
+		},
+		"watch": {}
+	}
+}

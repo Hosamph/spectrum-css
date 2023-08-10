@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "closebutton",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/closebutton"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/closebutton"
+			}
+		},
+		"watch": {}
+	}
+}

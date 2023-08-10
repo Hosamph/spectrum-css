@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "helptext",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/helptext"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/helptext"
+			}
+		},
+		"watch": {}
+	}
+}

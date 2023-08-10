@@ -1,0 +1,9 @@
+{
+    "executors": {
+      "build": {
+        "implementation": "./executors/build/index.js",
+        "schema": "./executors/build/schema.json",
+        "description": "Compile Spectrum CSS assets from source files."
+      }
+    }
+  }

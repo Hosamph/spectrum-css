@@ -1,0 +1,19 @@
+{
+	"name": "ui-icons",
+	"tag": ["assets", "icons"],
+	"targets": {
+		"clean": {
+			"options": {
+				"cwd": "ui-icons"
+			}
+		},
+		"build": {
+			"dependsOn": ["clean"],
+			"executor": "nx:run-commands",
+			"options": {
+				"cwd": "ui-icons",
+				"commands": ["node ./index.js"]
+			}
+		}
+	}
+}

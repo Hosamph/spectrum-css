@@ -1,0 +1,54 @@
+{
+  "name": "@spectrum-css/component-builder",
+  "version": "4.0.14",
+  "description": "A tool to build Spectrum components stylesheets from source files.",
+  "license": "Apache-2.0",
+  "author": "Adobe",
+  "homepage": "https://opensource.adobe.com/spectrum-css/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adobe/spectrum-css.git",
+    "directory": "component-builder"
+  },
+  "bugs": {
+    "url": "https://github.com/adobe/spectrum-css/issues"
+  },
+  "main": "./index",
+  "dependencies": {
+    "@nx/devkit": "^16.8.1",
+    "@nx/js": "^16.8.1",
+    "chalk": "^4.0.0",
+    "concat-with-sourcemaps": "^1.1.0",
+    "fast-glob": "^3.3.1",
+    "fuzzy-matching": "^0.4.3",
+    "lodash": "^4.17.21",
+    "merge-source-map": "^1.1.0",
+    "nx": "^16.8.1",
+    "postcss": "^8.4.28",
+    "postcss-load-config": "^4.0.1",
+    "postcss-value-parser": "^4.2.0",
+    "prettier": "^2.8.8",
+    "randoma": "^2.0.0",
+    "stylelint": "^15.10.2",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-use-logical": "^2.1.0"
+  },
+  "peerDependencies": {
+    "@spectrum-css/expressvars": "*",
+    "@spectrum-css/tokens": "*",
+    "@spectrum-css/vars": "*"
+  },
+  "peerDependenciesMeta": {
+    "@spectrum-css/expressvars": {
+      "optional": true
+    },
+    "@spectrum-css/vars": {
+      "optional": true
+    },
+    "@spectrum-css/tokens": {
+      "optional": true
+    }
+  },
+  "builders": "./executors.json",
+  "schematics": "./generators.json"
+}

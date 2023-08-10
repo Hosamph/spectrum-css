@@ -13,15 +13,12 @@
   "bugs": {
     "url": "https://github.com/adobe/spectrum-css/issues"
   },
-  "main": "dist/index-vars.css",
-  "scripts": {
-    "build": "gulp"
-  },
+  "main": "dist/index.css",
   "peerDependencies": {
-    "@spectrum-css/actionbutton": ">=4",
+    "@spectrum-css/actionbutton": ">=5",
     "@spectrum-css/asset": ">=3",
     "@spectrum-css/checkbox": ">=7",
-    "@spectrum-css/icon": ">=3",
+    "@spectrum-css/icon": ">=4",
     "@spectrum-css/quickaction": ">=3",
     "@spectrum-css/tokens": ">=11",
     "@spectrum-css/typography": ">=4 <=5"
@@ -30,12 +27,10 @@
     "@spectrum-css/actionbutton": "^5.0.7",
     "@spectrum-css/asset": "^3.0.48",
     "@spectrum-css/checkbox": "^7.0.11",
-    "@spectrum-css/component-builder-simple": "^2.0.17",
     "@spectrum-css/icon": "^4.0.1",
     "@spectrum-css/quickaction": "^3.0.83",
     "@spectrum-css/tokens": "^11.3.4",
-    "@spectrum-css/typography": "^5.0.40",
-    "gulp": "^4.0.0"
+    "@spectrum-css/typography": "^5.0.40"
   },
   "publishConfig": {
     "access": "public"

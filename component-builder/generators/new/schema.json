@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"$id": "NewComponent",
+	"title": "Create a new Spectrum component",
+	"description": "Create a new Spectrum component.",
+	"type": "object",
+	"cli": "nx",
+	"properties": {
+		"name": {
+			"type": "string",
+			"description": "Component name.",
+			"$default": {
+				"$source": "argv",
+				"index": 0
+			},
+			"x-prompt": "Please provide a human-readable name for the component (i.e., Help text)."
+		},
+		"description": {
+			"type": "string",
+			"description": "Brief summary of this component's goals."
+		},
+		"tags": {
+			"type": "array",
+			"description": "List of tags to help categorize this component.",
+			"items": {
+				"type": "string"
+			},
+			"default": ["component"]
+		}
+	},
+	"additionalProperties": true,
+	"required": ["name"]
+}

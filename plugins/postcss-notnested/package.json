@@ -1,0 +1,24 @@
+{
+  "name": "@spectrum-tools/postcss-notnested",
+  "version": "1.0.0",
+  "description": "",
+  "license": "Apache-2.0",
+  "author": "Adobe",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo \"No build required. See README for usage examples.\"",
+    "coverage": "c8 yarn test",
+    "prepublishOnly": "yarn test",
+    "test": "ava"
+  },
+  "dependencies": {
+    "postcss-selector-parser": "^6.0.13"
+  },
+  "peerDependencies": {
+    "postcss": ">=8"
+  },
+  "devDependencies": {
+    "ava": "^5.3.1",
+    "c8": "^8.0.1"
+  }
+}

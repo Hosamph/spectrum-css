@@ -1,29 +1,4 @@
-const postcss = require("postcss");
 const valueParser = require("postcss-value-parser");
-
-function getFallbackValue(decl) {
-	const parsed = valueParser(decl.value);
-	if (!parsed.nodes || !parsed.nodes.length) {
-		return node.value;
-	}
-
-	parsed.walk((node) => {
-		if (node.type === "function" && node.value === "var") {
-			// If it's a var, recursively find the fallback
-			const fallbackNode = getFallbackNode(node);
-
-			// Replace node properties with the fallback
-			node.type = fallbackNode.type;
-			node.value = fallbackNode.value;
-			node.nodes = fallbackNode.nodes;
-
-			// Do not investigate children
-			return false;
-		}
-	});
-
-	return valueParser.stringify(parsed);
-}
 
 function getFallbackNode(node) {
 	const nodes = node.nodes;
@@ -35,13 +10,31 @@ function getFallbackNode(node) {
 	return node;
 }
 
-module.exports = function () {
-	return {
-		postcssPlugin: "postcss-varfallback",
-		Declaration(decl) {
-			decl.value = getFallbackValue(decl);
-		},
-	};
-};
+module.exports = () => ({
+	postcssPlugin: "postcss-varfallback",
+	Declaration(decl) {
+		const parsed = valueParser(decl.value);
+		if (!parsed.nodes || !parsed.nodes.length) {
+			return node.value;
+		}
+
+		parsed.walk((node) => {
+			if (node.type !== "function" || node.value !== "var") return;
+
+			// If it's a var, recursively find the fallback
+			const fallbackNode = getFallbackNode(node);
+
+			// Replace node properties with the fallback
+			node.type = fallbackNode.type;
+			node.value = fallbackNode.value;
+			node.nodes = fallbackNode.nodes;
+
+			// Do not investigate children
+			return false;
+		});
+
+		decl.value = valueParser.stringify(parsed);
+	},
+});
 
 module.exports.postcss = true;

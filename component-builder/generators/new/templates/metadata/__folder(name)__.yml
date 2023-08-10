@@ -1,0 +1,22 @@
+title: <%= name %>
+description: <%= description %>
+sizing: ["xs", "s", "m", "l", "xl"]
+states:
+  - classname: is-open
+    description: <%= name %> is open
+variants:
+  - name: Emphasized
+    classname: <%= className(name) %>--emphasized
+status: Verified
+designLink: https://spectrum.adobe.com/page/<%= kebabCase(name) %>/
+SWC:
+  url: https://opensource.adobe.com/spectrum-web-components/components/<%= kebabCase(name) %>/
+  tag: "sp-<%= kebabCase(name) %>"
+sections:
+  - title: Usage notes
+    content: |
+      Description
+examples:
+  - title: Example 1
+    markup: |
+        <!-- Component mark-up goes here -->

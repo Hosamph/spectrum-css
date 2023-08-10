@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "dropzone",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/dropzone"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/dropzone"
+			}
+		},
+		"watch": {}
+	}
+}

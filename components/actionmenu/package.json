@@ -15,7 +15,9 @@
   },
   "main": "dist/index-vars.css",
   "scripts": {
-    "build": "gulp"
+    "build": "echo \"No build required.\"",
+    "test": "nx test",
+    "watch": "nx watch --includeDependentProjects -- nx build \\$NX_PROJECT_NAME"
   },
   "peerDependencies": {
     "@spectrum-css/actionbutton": ">=5",
@@ -26,12 +28,10 @@
   },
   "devDependencies": {
     "@spectrum-css/actionbutton": "^5.0.7",
-    "@spectrum-css/component-builder-simple": "^2.0.17",
     "@spectrum-css/icon": "^4.0.1",
     "@spectrum-css/menu": "^5.0.10",
     "@spectrum-css/popover": "^6.0.74",
-    "@spectrum-css/tokens": "^11.3.4",
-    "gulp": "^4.0.0"
+    "@spectrum-css/tokens": "^11.3.4"
   },
   "publishConfig": {
     "access": "public"

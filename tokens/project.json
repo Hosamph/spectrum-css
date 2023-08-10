@@ -1,0 +1,60 @@
+{
+	"name": "tokens",
+	"tag": ["tokens"],
+	"targets": {
+		"build": {
+			"dependsOn": ["clean", "convert"],
+			"executor": "nx:run-commands",
+			"options": {
+				"cwd": "tokens",
+				"commands": [
+					"concat-cli -f dist/css/*.css dist/css/**/*.css -o dist/index.css",
+					"postcss --replace dist/index.css",
+					"prettier --no-config --no-error-on-unmatched-pattern --ignore-unknown --loglevel silent --write dist/",
+					"find dist -type f -empty -delete"
+				],
+				"parallel": false
+			}
+		},
+		"convert": {
+			"dependsOn": ["process"],
+			"inputs": [
+				"{workspaceRoot}/postcss.config.js",
+				"{workspaceRoot}/custom-express/*.css",
+				"{workspaceRoot}/custom-spectrum/*.css"
+			],
+			"outputs": [
+				"{workspaceRoot}/dist/css/express",
+				"{workspaceRoot}/dist/css/spectrum"
+			],
+			"executor": "nx:run-commands",
+			"options": {
+				"cwd": "tokens",
+				"commands": [
+					"postcss --replace dist/css/*.css",
+					"postcss --dir dist/css/express/ custom-express/*.css",
+					"postcss --dir dist/css/spectrum/ custom-spectrum/*.css"
+				]
+			}
+		},
+		"process": {
+			"inputs": [
+				"{workspaceRoot}/postcss.config.js",
+				"{workspaceRoot}/style-dictionary.config.js",
+				"{workspaceRoot}/utilities/style-dictionary.utils.js",
+				"{workspaceRoot}/custom-express/*.css",
+				"{workspaceRoot}/custom-spectrum/*.css"
+			],
+			"outputs": ["{workspaceRoot}/dist"],
+			"executor": "nx:run-commands",
+			"options": {
+				"cwd": "tokens",
+				"commands": [
+					"style-dictionary build --config style-dictionary.config.js",
+					"postcss --replace dist/css/*.css"
+				],
+				"parallel": false
+			}
+		}
+	}
+}

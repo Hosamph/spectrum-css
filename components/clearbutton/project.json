@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "clearbutton",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/clearbutton"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/clearbutton"
+			}
+		},
+		"watch": {}
+	}
+}

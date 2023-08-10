@@ -1,0 +1,43 @@
+{
+  "name": "@spectrum-tools/<%= name %>",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "author": "Adobe",
+  "homepage": "https://opensource.adobe.com/spectrum-css/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adobe/spectrum-css.git",
+    "directory": "component-builder"
+  },
+  "bugs": {
+    "url": "https://github.com/adobe/spectrum-css/issues"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "build": "echo \"No build required. See README for usage examples.\"",
+    "coverage": "c8 yarn test",
+    "prepublishOnly": "yarn test",
+    "test": "ava"
+  },
+  "peerDependencies": {
+    "postcss": ">=8"
+  },
+  "devDependencies": {
+    "ava": "^5.3.1",
+    "c8": "^8.0.1",
+    "postcss": "^8.4.29"
+  },
+  "keywords": [
+    "adobe",
+    "css",
+    "plugin",
+    "postcss",
+    "spectrum"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

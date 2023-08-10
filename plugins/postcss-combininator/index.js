@@ -10,35 +10,31 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-const postcss = require("postcss");
+module.exports = ({}) => {
+	return {
+		postcssPlugin: "postcss-combininator",
+		prepare() {
+			const rules = [];
+			const declarations = {};
+			return {
+				Rule(rule) {
+					rules.push(rule);
+				},
+				Declaration(decl) {
+					if (!decl.prop.startsWith("--")) return;
+					declarations[decl.prop] = decl;
+					decl.remove();
+				},
+				OnceExit() {
+					const lastRule = rules.pop();
+					if (!lastRule) return;
+					rules.forEach((rule) => rule.remove());
 
-function process(root, options) {
-	let rules = [];
-	let declarations = {};
-	root.walkRules((rule) => {
-		rules.push(rule);
-		rule.walkDecls((decl) => {
-			if (decl.prop.startsWith("--")) {
-				declarations[decl.prop] = decl;
-				decl.remove();
-			}
-		});
-	});
-
-	let lastRule = rules[rules.length - 1];
-	if (lastRule) {
-		rules.forEach((rule, index) => {
-			if (index !== rules.length - 1) {
-				rule.remove();
-			}
-		});
-
-		for (let decl of Object.values(declarations)) {
-			lastRule.append(decl);
-		}
-	}
-}
-
-module.exports = postcss.plugin("postcss-combininator", function (options) {
-	return (root, result) => process(root, options);
-});
+					for (let decl of Object.values(declarations)) {
+						lastRule.append(decl);
+					}
+				},
+			};
+		},
+	};
+};

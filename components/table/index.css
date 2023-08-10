@@ -477,11 +477,11 @@ governing permissions and limitations under the License.
     }
   }
 
-  &.is-sorted-asc {
-    .spectrum-Table-sortedIcon {
-      transform: rotateZ(-90deg);
-    }
-  }
+	&.is-sorted-asc {
+		.spectrum-Table-sortedIcon {
+			transform: rotateZ(-90deg);
+		}
+	}
 }
 
 .spectrum-Table-columnTitle {
@@ -489,11 +489,11 @@ governing permissions and limitations under the License.
 }
 
 .spectrum-Table-cell--alignCenter {
-  text-align: center;
+	text-align: center;
 }
 
 .spectrum-Table-cell--alignRight {
-  text-align: end;
+	text-align: end;
 }
 
 .spectrum-Table-body {

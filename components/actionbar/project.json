@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "actionbar",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/actionbar"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/actionbar"
+			}
+		},
+		"watch": {}
+	}
+}

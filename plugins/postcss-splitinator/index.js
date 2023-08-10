@@ -10,77 +10,90 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-const postcss = require("postcss");
+const fallbackProcessor = (selector, prop) => {
+	// console.warn(selector, prop);
+	// selector = selector.replace(/^:where\((.*?)\)$/, "$1");
 
-function getName(selector, prop) {
-	selector = selector.replace(/^:where\((.*?)\)$/, "$1");
-
-	// This regex is designed to pull spectrum-ActionButton out of a selector
-	let baseSelectorMatch = selector.match(/^\.([a-z]+-[\A-Z][^-. ]+)/);
-	if (baseSelectorMatch) {
-		const [, baseSelector] = baseSelectorMatch;
-		const baseSelectorRegExp = new RegExp(baseSelector, "gi");
-		prop = prop.replace(baseSelectorRegExp, "");
-		selector = baseSelector + selector.replace(baseSelectorRegExp, "");
+	// This regex is designed to pull a component identifier out of a selector, i.e. spectrum-ActionButton
+	const matches = selector.match(/^\.([a-z]+-[\A-Z][^-. ]+)/);
+	if (matches && matches.length > 0) {
+		const [, baseSelector] = matches;
+		prop = prop.replace(new RegExp(baseSelector, "gi"), "");
+		selector =
+			baseSelector + selector.replace(new RegExp(baseSelector, "gi"), "");
 	}
 
 	selector = selector.replace(/is-/g, "");
 
-	let selectorParts = selector.replace(/\s+/g, "").replace(/,/g, "").split(".");
+	const selectorParts = selector
+		.replace(/\s+/g, "") // remove whitespace
+		.replace(/&/g, "") // remove &
+		.replace(/,/g, "") // remove commas
+		.split("."); // split on class selectors
 
-	return (
-		"--" +
-		(`system-` + `${selectorParts.join("-")}-${prop.substr(2)}`)
-			.replace(/-+/g, "-")
-			.toLowerCase()
-	);
-}
+	return `--${`system-${selectorParts.join("-")}-${prop.substr(2)}`
+		.replace(/-+/g, "-")
+		.toLowerCase()}`;
+};
 
-function process(root, options = {}) {
-	options.noFlatVariables = options.noFlatVariables ?? false;
-	options.noSelectors = options.noSelectors ?? false;
-	const selectorMap = {};
+module.exports = ({
+	flatVariables = true,
+	selectors = true,
+	processIdentifier = (identifierValue, _) => identifierValue,
+	getName = fallbackProcessor,
+}) => ({
+	postcssPlugin: "postcss-splitinator",
+	prepare() {
+		const selectorMap = {};
+		return {
+			/** @todo Maybe use this parser when it's released: https://github.com/postcss/postcss-at-rule-parser */
+			AtRule(query, { Rule }) {
+				if (query.name !== "container" || !query.params) return;
 
-	root.walkAtRules((container) => {
-		if (container.name === "container") {
-			const [, identifierName, identifierValue] = container.params.match(
-				/\(\s*--(.*?)\s*[:=]\s*(.*?)\s*\)/
-			);
+				console.warn(query.params);
 
-			const rule = postcss.rule({
-				selector: `.${
-					options && typeof options.processIdentifier === "function"
-						? options.processIdentifier(identifierValue, identifierName)
-						: identifierValue
-				}`,
-				source: container.source,
-			});
+				const capture = query.params.match(
+					/(?<identifier>\w+)?\(\s*--(.*?)\s*[:=]\s*(.*?)\s*\)/
+				);
 
-			if (!options.noFlatVariables) {
-				container.parent.insertAfter(container, rule);
-			}
+				console.warn(capture);
 
-			container.walkDecls((decl) => {
-				if (decl.prop.startsWith("--")) {
+				const [, identiferFunc, identifierName, identifierValue] = capture;
+
+				if (!identiferFunc) return;
+
+				const rule = new Rule({
+					selector: `.${
+						typeof processIdentifier === "function"
+							? processIdentifier(identifierValue, identifierName)
+							: identifierValue
+					}`,
+					source: query.source,
+				});
+
+				if (flatVariables) {
+					query.parent.insertAfter(query, rule);
+				}
+
+				query.walkDecls((decl) => {
+					if (!decl.prop.startsWith("--")) return;
+
 					// Process rules that match multiple selectors separately to avoid weird var names and edge cases
 					// note: this doesn't support :where() and is likely brittle!
 					const selectors = decl.parent.selector.split(/\s*,\s*/);
 					selectors.forEach((selector) => {
-						const variableName =
-							typeof options.getName === "function"
-								? options.getName(selector, decl.prop)
-								: getName(selector, decl.prop);
+						const variableName = getName(selector, decl.prop);
 						const newDecl = decl.clone({
 							prop: variableName,
 						});
 						newDecl.raws.before = "\n  ";
 
-						if (!options.noFlatVariables) {
+						if (flatVariables) {
 							rule.append(newDecl);
 						}
 
-						const selectorNode = (selectorMap[selector] =
-							selectorMap[selector] || {});
+						const selectorNode =
+							(selectorMap[selector] = selectorMap[selector]) ?? {};
 
 						// Check for fallbacks
 						// todo: use valueparser instead of a regex
@@ -101,34 +114,32 @@ function process(root, options = {}) {
 							selectorNode[decl.prop] = `var(${variableName})`;
 						}
 					});
-				}
-			});
-
-			container.remove();
-		}
-	});
-
-	if (!options.noSelectors) {
-		for (let [selector, props] of Object.entries(selectorMap)) {
-			const rule = postcss.rule({
-				selector,
-			});
-
-			for (let [prop, value] of Object.entries(props)) {
-				const decl = postcss.decl({
-					prop,
-					value,
 				});
-				decl.raws.before = "\n  ";
 
-				rule.append(decl);
-			}
+				query.remove();
+			},
+			Once(root, { Rule, Decl }) {
+				if (!selectors) return;
+				for (let [selector, props] of Object.entries(selectorMap)) {
+					const rule = new Rule({
+						selector,
+					});
 
-			root.append(rule);
-		}
-	}
-}
+					for (let [prop, value] of Object.entries(props)) {
+						const decl = new Decl({
+							prop,
+							value,
+						});
+						decl.raws.before = "\n  ";
 
-module.exports = postcss.plugin("postcss-splitinator", function (options) {
-	return (root, result) => process(root, options);
+						rule.append(decl);
+					}
+
+					root.append(rule);
+				}
+			},
+		};
+	},
 });
+
+module.exports.postcss = true;

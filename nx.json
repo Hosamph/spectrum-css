@@ -1,18 +1,80 @@
 {
-	"npmScope": "@spectrum-css",
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
 	"tasksRunnerOptions": {
 		"default": {
 			"runner": "nx/tasks-runners/default",
 			"options": {
-				"cacheableOperations": ["build"]
+				"cacheableOperations": ["build", "lint", "test"]
 			}
 		}
 	},
-	"targetDefaults": {
-		"build": {
-			"dependsOn": ["clean", "^build"],
-			"inputs": ["{workspaceRoot}/*.css"]
-		}
+	"cli": {
+		"warnings": {
+			"versionMismatch": true
+		},
+		"packageManager": "yarn",
+		"analytics": false
 	},
-	"includedScripts": ["build"]
+	"targetDefaults": {
+		"clean": {
+			"inputs": ["{workspaceRoot}/dist/**"],
+			"outputs": [],
+			"executor": "nx:run-commands",
+			"options": {
+				"cwd": "{workspaceRoot}",
+				"command": "rimraf {inputs}",
+				"color": true
+			}
+		},
+		"lint": {
+			"inputs": [
+				"{projectRoot}/**/*.css",
+				"{projectRoot}/.stylelintignore",
+				"{projectRoot}/.stylelintrc.json"
+			],
+			"executor": "nx:run-commands",
+			"options": {
+				"cwd": "{workspaceRoot}",
+				"command": "stylelint index.css themes/*.css --fix"
+			}
+		},
+		"build": {
+			"dependsOn": ["^build"],
+			"executor": "@spectrum-css/component-builder:build",
+			"options": {
+				"sourceFiles": ["{workspaceRoot}/index.css"],
+				"themeFiles": ["{workspaceRoot}/themes/spectrum.css", "{workspaceRoot}/themes/*.css"],
+				"outputPath": "{workspaceRoot}/dist"
+			},
+			"configurations": {
+				"legacy": {
+					"sourceFiles": ["{workspaceRoot}/index.css"],
+					"themeFiles": ["{workspaceRoot}/skin.css"]
+				}
+			}
+		},
+		"test": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "nx run storybook:test",
+				"forwardAllArgs": true
+			},
+			"configurations": {
+				"scoped": {
+					"command": "nx run storybook:test --only-story-names $NX_TASK_TARGET_PROJECT"
+				},
+				"ci": {
+					"command": "nx run storybook:test --exit-zero-on-changes --only-changed"
+				}
+			},
+			"inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
+		},
+		"watch": {
+			"dependsOn": ["build"],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "nx watch --projects $NX_TASK_TARGET_PROJECT -- nx run \\$NX_PROJECT_NAME:build"
+			}
+		}
+	}
 }

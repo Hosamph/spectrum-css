@@ -1,0 +1,25 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"cli": "nx",
+	"title": "PostCSS plugin generator",
+	"description": "Generates a PostCSS plugin project.",
+	"$id": "PostcssPlugin",
+	"type": "object",
+	"properties": {
+		"name": {
+			"type": "string",
+			"description": "A name for the plugin; should be prefixed with postcss (e.g. 'postcss-foo')",
+			"$default": {
+				"$source": "argv",
+				"index": 0
+			},
+			"x-priority": "important",
+			"x-prompt": "Please provide a name for the PostCSS plugin. It should be descriptive and prefixed with postcss- (e.g. 'postcss-foo')."
+		},
+		"description": {
+			"type": "string",
+			"description": "Brief summary of this plugin's goals."
+		}
+	},
+	"required": ["name"]
+}

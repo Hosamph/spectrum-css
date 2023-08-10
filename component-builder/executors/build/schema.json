@@ -1,0 +1,54 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"cli": "nx",
+	"title": "Spectrum CSS component builder",
+	"description": "This tool builds Spectrum CSS components from source files.",
+	"id": "component",
+	"type": "object",
+	"properties": {
+		"sourceFiles": {
+		  "type": "array",
+		  "description": "The path to the entry file, relative to project.",
+		  "items": {
+			"type": "string",
+			"x-completion-type": "file",
+			"x-completion-glob": "**/*@(.css|.postcss)"
+		  },
+		  "x-priority": "important",
+		  "default": ["index.css"]
+		},
+		"themeFiles": {
+			"type": "array",
+			"description": "The path to the entry file, relative to project.",
+			"items": {
+				"type": "string",
+				"x-completion-type": "file",
+				"x-completion-glob": "**/*@(.css|.postcss)"
+			},
+			"default": ["themes/spectrum.css", "themes/express.css"]
+		},
+		"outputPath": {
+		  "type": "string",
+		  "description": "The output path of the generated files.",
+		  "x-completion-type": "directory",
+		  "x-priority": "important",
+		  "default": "dist"
+		},
+		"postcssConfig": {
+		  "type": "string",
+		  "description": "Path to a postcss configuration file. See https://github.com/postcss/postcss-load-config/.",
+		  "x-completion-type": "file"
+		},
+		"watch": {
+		  "type": "boolean",
+		  "description": "Enable re-building when files change.",
+		  "default": false
+		},
+		"clean": {
+		  "type": "boolean",
+		  "description": "Remove previous output before build.",
+		  "default": true
+		}
+	},
+	"required": []
+}

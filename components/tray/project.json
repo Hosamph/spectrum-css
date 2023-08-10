@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "tray",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/tray"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/tray"
+			}
+		},
+		"watch": {}
+	}
+}

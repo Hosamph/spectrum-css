@@ -1,0 +1,30 @@
+{
+    "name": "Nx Spectrum Build",
+    "version": "0.1",
+    "schematics": {
+      "component": {
+        "factory": "./generators/new/index.js#newSchematic",
+        "schema": "./generators/new/schema.json",
+        "description": "Add a new Spectrum component."
+      },
+      "postcss-plugin": {
+        "factory": "./generators/postcss-plugin/index.js#postcssPluginSchematic",
+        "schema": "./generators/postcss-plugin/schema.json",
+        "description": "Add a new PostCSS plugin to a project."
+      }
+    },
+    "generators": {
+      "component": {
+        "aliases": ["new"],
+        "factory": "./generators/new/index.js#newGenerator",
+        "schema": "./generators/new/schema.json",
+        "description": "Add a new Spectrum component."
+      },
+      "postcss-plugin": {
+        "aliases": ["plugin"],
+        "factory": "./generators/postcss-plugin/index.js#postcssPluginGenerator",
+        "schema": "./generators/postcss-plugin/schema.json",
+        "description": "Add a new PostCSS plugin to a project."
+      }
+    }
+  }

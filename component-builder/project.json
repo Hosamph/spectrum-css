@@ -1,0 +1,11 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "component-builder",
+    "tags": ["tooling"],
+	"sourceRoot": "executors/builder",
+	"targets": {
+		"build": {
+			"executor": "nx:noop"
+		}
+	}
+}

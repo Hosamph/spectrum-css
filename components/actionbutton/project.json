@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "actionbutton",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/actionbutton"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/actionbutton"
+			}
+		},
+		"watch": {}
+	}
+}

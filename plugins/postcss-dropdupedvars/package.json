@@ -1,18 +1,24 @@
 {
-  "private": true,
-  "name": "postcss-dropdupedvars",
+  "name": "@spectrum-tools/postcss-dropdupedvars",
   "version": "1.1.2",
-  "description": "Drop duplicate vars",
+  "description": "A PostCSS plugin to drop duplicate variables",
   "license": "Apache-2.0",
   "author": "Adobe",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
+    "build": "echo \"No build required. See README for usage examples.\"",
+    "coverage": "c8 yarn test",
+    "prepublishOnly": "yarn test",
     "test": "ava"
   },
-  "dependencies": {
-    "postcss": "^7.0.32"
+  "peerDependencies": {
+    "postcss": ">=8"
   },
   "devDependencies": {
-    "ava": "^3.9.0"
+    "ava": "^5.3.1",
+    "c8": "^8.0.1"
   }
 }

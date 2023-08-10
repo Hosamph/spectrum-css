@@ -1,6 +1,6 @@
-| Modifiable Custom Properties          |
-| ------------------------------------- |
-| `--mod-opacity-checkerboard-dark`     |
-| `--mod-opacity-checkerboard-light`    |
+| Modifiable custom properties |
+| --- |
+| `--mod-opacity-checkerboard-dark` |
+| `--mod-opacity-checkerboard-light` |
 | `--mod-opacity-checkerboard-position` |
-| `--mod-opacity-checkerboard-size`     |
+| `--mod-opacity-checkerboard-size` |

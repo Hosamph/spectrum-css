@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "floatingactionbutton",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/floatingactionbutton"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/floatingactionbutton"
+			}
+		},
+		"watch": {}
+	}
+}

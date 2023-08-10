@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "checkbox",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/checkbox"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/checkbox"
+			}
+		},
+		"watch": {}
+	}
+}

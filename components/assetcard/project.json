@@ -1,0 +1,20 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "assetcard",
+	"tags": ["component", "legacy"],
+	"targets": {
+		"build": { "defaultConfiguration": "legacy" },
+		"test": { "defaultConfiguration": "scoped" },
+		"lint": {
+			"options": {
+				"cwd": "components/assetcard"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/assetcard"
+			}
+		},
+		"watch": {}
+	}
+}

@@ -16,9 +16,14 @@ yarn-error.log
 package-lock.json
 
 # Storybook build output
-tools/preview/storybook-static
+storybook/storybook-static
 build-storybook.log
 
 # Chromatic
 chromatic-build-*.xml
 chromatic-diagnostics*.json
+
+
+
+# Other assundry caches
+.*-cache

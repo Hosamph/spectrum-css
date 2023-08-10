@@ -1,0 +1,64 @@
+{
+	"$schema": "../node_modules/nx/schemas/project-schema.json",
+	"name": "site",
+	"tags": ["tooling", "website", "documentation"],
+	"implicitDependencies": ["tag:component"],
+	"namedInputs": {
+		"core": [
+			"{workspaceRoot}/_data",
+			"{workspaceRoot}/_includes",
+			"{workspaceRoot}/_layouts",
+			"{workspaceRoot}/assets",
+			"{workspaceRoot}/content",
+			"{workspaceRoot}/utils",
+			"{workspaceRoot}/.eleventy.js",
+			"{workspaceRoot}/postcss.config.js",
+			"{projectRoot}/components/*/dist/*.css",
+			"{projectRoot}/components/*/dist/themes/*.css"
+		],
+		"output": ["{workspaceRoot}/dist"]
+	},
+	"targets": {
+		"clean": {
+			"inputs": ["{workspaceRoot}/dist"],
+			"outputs": [],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "rimraf {inputs}"
+			}
+		},
+		"build": {
+			"dependsOn": ["clean", "^build"],
+			"inputs": ["core"],
+			"outputs": ["output"],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "eleventy",
+				"color": true,
+				"envFile": "{projectRoot}/.env.build"
+			}
+		},
+		"start": {
+			"dependsOn": ["^build"],
+			"inputs": ["core"],
+			"outputs": ["output"],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "eleventy --serve",
+				"color": true,
+				"envFile": "{projectRoot}/.env.dev"
+			}
+		},
+		"dev": {
+			"dependsOn": ["^build"],
+			"inputs": ["core"],
+			"outputs": ["output"],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "eleventy --serve --incremental",
+				"color": true,
+				"envFile": "{projectRoot}/.env.dev"
+			}
+		}
+	}
+}

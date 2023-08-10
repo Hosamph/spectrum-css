@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "fieldgroup",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/fieldgroup"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/fieldgroup"
+			}
+		},
+		"watch": {}
+	}
+}

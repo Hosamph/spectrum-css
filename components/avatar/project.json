@@ -1,0 +1,22 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "avatar",
+	"tags": ["component"],
+	"targets": {
+		"build": {},
+		"test": {
+			"defaultConfiguration": "scoped"
+		},
+		"lint": {
+			"options": {
+				"cwd": "components/avatar"
+			}
+		},
+		"clean": {
+			"options": {
+				"cwd": "components/avatar"
+			}
+		},
+		"watch": {}
+	}
+}
