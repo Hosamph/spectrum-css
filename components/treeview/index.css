@@ -193,10 +193,11 @@ governing permissions and limitations under the License.
   outline: none;
   cursor: pointer;
 
-  /* Prevent weirdness that can cause the vertical bar to fall down */
+  /* Prevent weirdness that can cause the vertical bar to fall down. */
   white-space: nowrap;
   overflow: hidden;
 
+  /* Background for hover, focus, and selection. */
   &:before {
     content: '\00a0';
 
@@ -255,7 +256,7 @@ governing permissions and limitations under the License.
   float: inline-start;
   position: relative;
 
-  /* make sure hover doesn't block clicks on chevron */
+  /* Make sure hover doesn't block clicks on the chevron. */
   z-index: 1;
 
   inset-inline-start: var(--spectrum-global-dimension-size-125);
