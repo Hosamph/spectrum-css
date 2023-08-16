@@ -16,6 +16,20 @@ governing permissions and limitations under the License.
   --spectrum-treeview-heading-font-weight: var(--spectrum-global-font-weight-bold);
   --spectrum-treeview-item-hover-offset: var(--spectrum-global-dimension-size-25);
   --spectrum-treeview-item-border-size-selected: var(--spectrum-alias-border-size-thin);
+
+  --spectrum-treeview-item-background-color-selected: var(--spectrum-alias-highlight-selected);
+  --spectrum-treeview-item-border-color-selected: var(--spectrum-global-color-blue-500);
+
+  --spectrum-treeview-item-background-color-quiet-selected: var(--spectrum-alias-highlight-hover);
+  --spectrum-treeview-item-border-color-quiet-selected: transparent;
+
+  --spectrum-treeview-item-icon-color: var(--spectrum-alias-icon-color);
+  --spectrum-treeview-item-icon-color-hover: var(--spectrum-alias-icon-color-hover);
+  --spectrum-treeview-item-icon-color-focus: var(--spectrum-alias-icon-color-key-focus);
+  --spectrum-treeview-item-icon-color-selected: var(--spectrum-alias-icon-color-selected-neutral);
+  --spectrum-treeview-item-icon-color-disabled: var(--spectrum-alias-icon-color-disabled);
+
+  --spectrum-treeview-m-item-text-color-selected: var(--spectrum-alias-text-color-selected-neutral);
 }
 
 .spectrum-TreeView--sizeS {
@@ -83,6 +97,14 @@ governing permissions and limitations under the License.
   list-style: none;
   outline: none;
   user-select: none;
+
+  /* Close (hide) nested treeviews by default. */
+  .spectrum-TreeView {
+    position: static;
+    block-size: 0;
+    visibility: hidden;
+    padding-inline-start: var(--spectrum-treeview-item-indentation);
+  }
 }
 
 .spectrum-TreeView-item {
@@ -108,12 +130,42 @@ governing permissions and limitations under the License.
         border-width: var(--spectrum-treeview-item-border-size);
       }
     }
+
+    > .spectrum-TreeView-itemLink {
+      &:before {
+        background-color: var(--spectrum-alias-highlight-selected);
+        border-color: var(--spectrum-treeview-m-item-border-color-key-focus);
+      }
+    }
   }
 
   &.is-selected {
     .spectrum-TreeView-itemLink:not(:focus-visible) {
       &:before {
         border-width: var(--spectrum-treeview-item-border-size-selected);
+      }
+    }
+
+    > .spectrum-TreeView-itemLink {
+      color: var(--spectrum-treeview-m-item-text-color-selected);
+
+      &:before {
+        background-color: var(--spectrum-treeview-item-background-color-selected);
+        border-color: var(--spectrum-treeview-m-item-border-color-key-focus);
+      }
+
+      .spectrum-TreeView-itemIcon {
+        color: var(--spectrum-treeview-item-icon-color-selected);
+      }
+    }
+  }
+
+  &.is-disabled {
+    > .spectrum-TreeView-itemLink {
+      color: var(--spectrum-treeview-m-item-text-color-disabled);
+
+      .spectrum-Icon {
+        color: var(--spectrum-treeview-item-icon-color-disabled);
       }
     }
   }
@@ -135,6 +187,8 @@ governing permissions and limitations under the License.
   padding-block: var(--spectrum-treeview-item-text-padding-top) var(--spectrum-treeview-item-text-padding-bottom);
   padding-inline: var(--spectrum-treeview-item-affordance-size);
   
+  color: var(--spectrum-treeview-m-item-text-color);
+
   text-decoration: none;
   outline: none;
   cursor: pointer;
@@ -142,11 +196,6 @@ governing permissions and limitations under the License.
   /* Prevent weirdness that can cause the vertical bar to fall down */
   white-space: nowrap;
   overflow: hidden;
-
-  .spectrum-TreeView-itemIcon {
-    vertical-align: top;
-    margin-inline-end: var(--spectrum-treeview-s-item-icon-gap);
-  }
 
   &:before {
     content: '\00a0';
@@ -167,35 +216,36 @@ governing permissions and limitations under the License.
   }
 
   &:focus-visible {
-    &:before {
+    color: var(--spectrum-treeview-m-item-text-color-mouse-focus);
+
+    &::before {
+      background-color: var(--spectrum-treeview-m-item-background-color-key-focus);
       border-width: var(--spectrum-treeview-item-border-size);
+      border-color: var(--spectrum-treeview-m-item-border-color-key-focus);
+    }
+
+    .spectrum-TreeView-itemIcon {
+      color: var(--spectrum-treeview-item-icon-color-focus);
+    }
+  }
+
+  &:hover {
+    color: var(--spectrum-treeview-m-item-text-color-hover);
+
+    &:before {
+      background-color: var(--spectrum-treeview-m-item-background-color-hover);
+    }
+
+    .spectrum-TreeView-itemIcon {
+      color: var(--spectrum-treeview-item-icon-color-hover);
     }
   }
 }
 
-.spectrum-TreeView--standalone {
-  .spectrum-TreeView-itemLink {
-    &:before {
-      border-radius: var(--spectrum-treeview-item-border-radius);
-      border-width: var(--spectrum-treeview-item-border-size);
-    }
-  }
-}
-
-.spectrum-TreeView--thumbnail {
-  .spectrum-TreeView-itemThumbnail {
-    margin-inline-end: var(--spectrum-treeview-s-item-icon-gap);
-  }
-  .spectrum-TreeView-itemLink {
-    box-sizing: content-box;
-    block-size: var(--spectrum-treeview-item-affordance-size);
-    padding-block-start: var(--spectrum-treeview-item-text-padding-top);
-    padding-block-end: calc(var(--spectrum-treeview-item-text-padding-bottom) - var(--spectrum-treeview-item-border-size));
-
-    &:before {
-      block-size: var(--spectrum-treeview-item-affordance-size);
-    }
-  }
+.spectrum-TreeView-itemIcon {
+  vertical-align: top;
+  margin-inline-end: var(--spectrum-treeview-s-item-icon-gap);
+  color: var(--spectrum-treeview-item-icon-color);
 }
 
 .spectrum-TreeView-itemIndicator {
@@ -223,16 +273,13 @@ governing permissions and limitations under the License.
   pointer-events: all;
 }
 
-/* Close nested treeviews by default */
-.spectrum-TreeView .spectrum-TreeView {
-  /* Don't be a highlight container stealer */
-  position: static;
+.spectrum-TreeView-heading {
+  padding: var(--spectrum-treeview-item-padding-left) var(--spectrum-treeview-item-padding-top) var(--spectrum-treeview-item-padding-right) var(--spectrum-treeview-item-padding-bottom);
+  font-weight: var(--spectrum-treeview-heading-font-weight);
 
-  padding-inline-start: var(--spectrum-treeview-item-indentation);
-
-  /* Be hidden */
-  block-size: 0;
-  visibility: hidden;
+  &:not(:first-child) {
+    margin-block-start: var(--spectrum-global-dimension-size-200);
+  }
 }
 
 .spectrum-TreeView-item {
@@ -277,11 +324,49 @@ governing permissions and limitations under the License.
   }
 }
 
-.spectrum-TreeView-heading {
-  padding: var(--spectrum-treeview-item-padding-left) var(--spectrum-treeview-item-padding-top) var(--spectrum-treeview-item-padding-right) var(--spectrum-treeview-item-padding-bottom);
-  font-weight: var(--spectrum-treeview-heading-font-weight);
+/* ***** VARIANTS ***** */
 
-  &:not(:first-child) {
-    margin-block-start: var(--spectrum-global-dimension-size-200);
+.spectrum-TreeView--quiet {
+  .spectrum-TreeView-item {
+     &.is-selected {
+      > .spectrum-TreeView-itemLink {
+        &:before {
+          background-color: var(--spectrum-treeview-item-background-color-quiet-selected);
+          border-color: transparent;
+        }
+
+        &:focus-visible {
+          &:before {
+            border-color: var(--spectrum-treeview-m-item-border-color-key-focus);
+          }
+        }
+      }
+    }
+  }
+}
+
+.spectrum-TreeView--standalone {
+  .spectrum-TreeView-itemLink {
+    &:before {
+      border-radius: var(--spectrum-treeview-item-border-radius);
+      border-width: var(--spectrum-treeview-item-border-size);
+    }
+  }
+}
+
+.spectrum-TreeView--thumbnail {
+  .spectrum-TreeView-itemThumbnail {
+    margin-inline-end: var(--spectrum-treeview-s-item-icon-gap);
+  }
+
+  .spectrum-TreeView-itemLink {
+    box-sizing: content-box;
+    block-size: var(--spectrum-treeview-item-affordance-size);
+    padding-block-start: var(--spectrum-treeview-item-text-padding-top);
+    padding-block-end: calc(var(--spectrum-treeview-item-text-padding-bottom) - var(--spectrum-treeview-item-border-size));
+
+    &:before {
+      block-size: var(--spectrum-treeview-item-affordance-size);
+    }
   }
 }
