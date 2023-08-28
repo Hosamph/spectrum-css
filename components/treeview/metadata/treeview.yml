@@ -37,7 +37,7 @@ examples:
   - id: treeview
     name: Standard
     description: |
-      Standardr Tree views span the entire width of their parent container and are used within panels.
+      Standard Tree views span the entire width of their parent container and are used within panels.
     markup: |
       <ul class="spectrum-TreeView spectrum-TreeView--sizeM" style="width: 250px">
         <li class="spectrum-TreeView-item">

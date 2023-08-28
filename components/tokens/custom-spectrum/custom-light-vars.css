@@ -31,4 +31,6 @@ governing permissions and limitations under the License.
   --spectrum-calendar-day-border-color-key-focus: var(--spectrum-blue-800);
 
   --spectrum-badge-label-icon-color-primary: var(--spectrum-white);
+
+  --spectrum-treeview-item-background-color-quiet-selected: rgba(var(--spectrum-gray-900-rgb), 0.06);
 }
