@@ -325,6 +325,7 @@ governing permissions and limitations under the License.
 
 .spectrum-Menu-item {
   display: grid;
+  /* stylelint-disable declaration-block-no-redundant-longhand-properties */
   grid-template-areas:
     ".            chevronAreaCollapsible .             iconArea sectionHeadingArea  .         .           .                 "
     "selectedArea chevronAreaCollapsible checkmarkArea iconArea labelArea        valueArea actionsArea chevronAreaDrillIn"
@@ -341,6 +342,7 @@ governing permissions and limitations under the License.
   grid-template-columns: auto auto;
   grid-template-rows: 1fr auto;
 }
+/* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
 .spectrum-Menu-item .spectrum-Menu-item .spectrum-Menu-itemLabel {
   grid-area: submenuItemLabelArea;
@@ -506,7 +508,7 @@ governing permissions and limitations under the License.
   align-self: start;
 }
 
-.spectrum-menu-itemSelection {
+.spectrum-Menu-itemSelection {
   grid-area: selectedArea;
 }
 
@@ -528,9 +530,7 @@ governing permissions and limitations under the License.
   grid-area: chevronArea;
   align-self: center;
   block-size: var(--spectrum-menu-item-checkmark-height);
-  height: var(--spectrum-menu-item-checkmark-height);
   inline-size: var(--spectrum-menu-item-checkmark-width);
-  width: var(--spectrum-menu-item-checkmark-width);
 }
 
 .spectrum-Menu-item--collapsible .spectrum-Menu-chevron {
