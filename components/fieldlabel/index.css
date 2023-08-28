@@ -91,7 +91,7 @@ governing permissions and limitations under the License.
 
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
-  font-smoothing: subpixel-antialiased;
+  font-smoothing: subpixel-antialiased; /* stylelint-disable-line property-no-unknown */
 
   color: var(--spectrum-fieldlabel-color);
 }
