@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="6.0.70"></a>
+##6.0.70
+🗓
+2023-08-29 • 📝 [Commits](https://github.com/adobe/spectrum-css/compare/@spectrum-css/popover@6.0.69...@spectrum-css/popover@6.0.70)
+
+### 🔙 Reverts
+
+\*gulp and build updates ([#2121](https://github.com/adobe/spectrum-css/issues/2121))([03a37f5](https://github.com/adobe/spectrum-css/commit/03a37f5)), closes[#2099](https://github.com/adobe/spectrum-css/issues/2099)
+
+<a name="6.0.69"></a>
+##6.0.69
+🗓
+2023-08-22 • 📝 [Commits](https://github.com/adobe/spectrum-css/compare/@spectrum-css/popover@6.0.68...@spectrum-css/popover@6.0.69)
+
+**Note:** Version bump only for package @spectrum-css/popover
+
+<a name="6.0.68"></a>
+##6.0.68
+🗓
+2023-08-22 • 📝 [Commits](https://github.com/adobe/spectrum-css/compare/@spectrum-css/popover@6.0.66...@spectrum-css/popover@6.0.68)
+
+**Note:** Version bump only for package @spectrum-css/popover
+
+<a name="6.0.67"></a>
+##6.0.67
+🗓
+2023-08-18 • 📝 [Commits](https://github.com/adobe/spectrum-css/compare/@spectrum-css/popover@6.0.66...@spectrum-css/popover@6.0.67)
+
+**Note:** Version bump only for package @spectrum-css/popover
+
 <a name="6.0.66"></a>
 ##6.0.66
 🗓
