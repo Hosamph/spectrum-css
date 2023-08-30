@@ -85,6 +85,11 @@ governing permissions and limitations under the License.
   --spectrum-treeview-item-icon-gap: var(--spectrum-text-to-visual-300);
 }
 
+.spectrum-TreeView--quiet {
+  --mod-treeview-item-background-color-selected: var(--mod-treeview-item-background-color-quiet-selected, var(--spectrum-treeview-item-background-color-quiet-selected));
+  --mod-treeview-item-border-color-key-focus: var(--mod-treeview-item-border-color-key-focus-quiet, transparent);
+}
+
 .spectrum-TreeView {
   display: block;
   position: relative;
@@ -337,25 +342,6 @@ governing permissions and limitations under the License.
 }
 
 /* ***** VARIANTS ***** */
-.spectrum-TreeView--quiet {
-  .spectrum-TreeView-item {
-     &.is-selected {
-      > .spectrum-TreeView-itemLink {
-        &:before {
-          background-color: var(--mod-treeview-item-background-color-quiet-selected, var(--spectrum-treeview-item-background-color-quiet-selected));
-          border-color: transparent;
-        }
-
-        &:focus-visible {
-          &:before {
-            border-color: var(--mod-treeview-item-border-color-key-focus, var(--spectrum-treeview-item-border-color-key-focus));
-          }
-        }
-      }
-    }
-  }
-}
-
 .spectrum-TreeView--standalone {
   .spectrum-TreeView-itemLink {
     &:before {
