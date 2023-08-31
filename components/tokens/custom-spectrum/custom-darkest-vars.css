@@ -31,6 +31,10 @@ governing permissions and limitations under the License.
 
   --spectrum-badge-label-icon-color-primary: var(--spectrum-black);
 
+  --spectrum-coach-indicator-ring-default-color: var(--spectrum-blue-700);
+  --spectrum-coach-indicator-ring-dark-color: var(--spectrum-gray-900);
+  --spectrum-coach-indicator-ring-light-color: var(--spectrum-gray-50);
+
   --spectrum-treeview-item-background-color-quiet-selected: rgba(var(--spectrum-gray-900-rgb), 0.08);
   --spectrum-treeview-item-background-color-selected: rgba(var(--spectrum-blue-800-rgb), 0.2);
 }
