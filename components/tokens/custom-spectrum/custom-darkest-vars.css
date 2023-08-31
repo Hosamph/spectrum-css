@@ -32,4 +32,5 @@ governing permissions and limitations under the License.
   --spectrum-badge-label-icon-color-primary: var(--spectrum-black);
 
   --spectrum-treeview-item-background-color-quiet-selected: rgba(var(--spectrum-gray-900-rgb), 0.08);
+  --spectrum-treeview-item-background-color-selected: rgba(var(--spectrum-blue-800-rgb), 0.2);
 }
