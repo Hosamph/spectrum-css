@@ -16,6 +16,7 @@
 | `--mod-treeview-item-background-color-quiet-selected` |
 | `--mod-treeview-item-background-color-selected`       |
 | `--mod-treeview-item-border-color-key-focus`          |
+| `--mod-treeview-item-border-color-key-focus-quiet`    |
 | `--mod-treeview-item-border-radius`                   |
 | `--mod-treeview-item-border-size`                     |
 | `--mod-treeview-item-border-size-selected`            |
