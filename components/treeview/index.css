@@ -28,10 +28,10 @@ governing permissions and limitations under the License.
   --spectrum-treeview-item-border-radius: 0px;
 
   --spectrum-treeview-item-border-color-selected: var(--spectrum-blue-800);
-  --spectrum-treeview-item-border-color-key-focus: var(--spectrum-blue-700);
+  --spectrum-treeview-item-border-color-focus: var(--spectrum-blue-700);
 
   --spectrum-treeview-item-background-color-hover: var(--spectrum-gray-200);
-  --spectrum-treeview-item-background-color-key-focus: var(--spectrum-gray-200);
+  --spectrum-treeview-item-background-color-focus: var(--spectrum-gray-200);
 
   --spectrum-treeview-item-border-color-quiet-selected: transparent;
   
@@ -86,7 +86,7 @@ governing permissions and limitations under the License.
 
 .spectrum-TreeView--quiet {
   --mod-treeview-item-background-color-selected: var(--mod-treeview-item-background-color-quiet-selected, var(--spectrum-treeview-item-background-color-quiet-selected));
-  --mod-treeview-item-border-color-key-focus: var(--mod-treeview-item-border-color-key-focus-quiet, transparent);
+  --mod-treeview-item-border-color-selected: var(--mod-treeview-item-border-color-selected-quiet, transparent);
 }
 
 .spectrum-TreeView {
@@ -124,24 +124,20 @@ governing permissions and limitations under the License.
   }
 
   &.is-drop-target {
-    .spectrum-TreeView-itemLink {
-      &:before {
-        border-width: var(--mod-treeview-item-border-size, var(--spectrum-treeview-item-border-size));
-      }
-    }
-
     > .spectrum-TreeView-itemLink {
       &:before {
         background-color: var(--mod-treeview-item-background-color-drop-target, var(--mod-treeview-item-background-color-selected, var(--spectrum-treeview-item-background-color-selected)));
-        border-color: var(--mod-treeview-item-border-color-key-focus, var(--spectrum-treeview-item-border-color-key-focus));
+        border-color: var(--mod-treeview-item-border-color-selected, var(--spectrum-treeview-item-border-color-selected));
+        border-width: var(--mod-treeview-item-border-size, var(--spectrum-treeview-item-border-size));
       }
     }
   }
 
   &.is-selected {
-    .spectrum-TreeView-itemLink:not(:focus-visible) {
+    > .spectrum-TreeView-itemLink:not(:focus-visible) {
       &:before {
         border-width: var(--mod-treeview-item-border-size-selected, var(--spectrum-treeview-item-border-size-selected));
+        border-color: var(--mod-treeview-item-border-color-selected, var(--spectrum-treeview-item-border-color-selected));
       }
     }
 
@@ -150,7 +146,6 @@ governing permissions and limitations under the License.
 
       &:before {
         background-color: var(--mod-treeview-item-background-color-selected, var(--spectrum-treeview-item-background-color-selected));
-        border-color: var(--mod-treeview-item-border-color-key-focus, var(--spectrum-treeview-item-border-color-key-focus));
       }
 
       .spectrum-TreeView-itemIcon {
@@ -228,9 +223,9 @@ governing permissions and limitations under the License.
     color: var(--mod-treeview-item-text-color-focus, var(--spectrum-treeview-item-text-color-focus));
 
     &::before {
-      background-color: var(--mod-treeview-item-background-color-key-focus, var(--spectrum-treeview-item-background-color-key-focus));
+      background-color: var(--mod-treeview-item-background-color-focus, var(--spectrum-treeview-item-background-color-focus));
       border-width: var(--mod-treeview-item-border-size, var(--spectrum-treeview-item-border-size));
-      border-color: var(--mod-treeview-item-border-color-key-focus, var(--spectrum-treeview-item-border-color-key-focus));
+      border-color: var(--mod-treeview-item-border-color-focus, var(--spectrum-treeview-item-border-color-focus));
     }
 
     .spectrum-TreeView-itemIcon {

@@ -11,12 +11,13 @@
 | `--mod-treeview-indicator-padding-inline`             |
 | `--mod-treeview-item-affordance-size`                 |
 | `--mod-treeview-item-background-color-drop-target`    |
+| `--mod-treeview-item-background-color-focus`          |
 | `--mod-treeview-item-background-color-hover`          |
-| `--mod-treeview-item-background-color-key-focus`      |
 | `--mod-treeview-item-background-color-quiet-selected` |
 | `--mod-treeview-item-background-color-selected`       |
-| `--mod-treeview-item-border-color-key-focus`          |
-| `--mod-treeview-item-border-color-key-focus-quiet`    |
+| `--mod-treeview-item-border-color-focus`              |
+| `--mod-treeview-item-border-color-selected`           |
+| `--mod-treeview-item-border-color-selected-quiet`     |
 | `--mod-treeview-item-border-radius`                   |
 | `--mod-treeview-item-border-size`                     |
 | `--mod-treeview-item-border-size-selected`            |
