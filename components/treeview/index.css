@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 */
 
 .spectrum-TreeView {
-  --spectrum-treeview-item-min-block-size: var(--spectrum-component-height-75);
+  --spectrum-treeview-item-min-block-size: var(--spectrum-component-height-100);
   --spectrum-treeview-item-indentation: var(--spectrum-treeview-item-indentation-medium);
   --spectrum-treeview-item-padding-default: 0px;
   --spectrum-treeview-item-padding-block-end: var(--spectrum-component-edge-to-text-100);
@@ -21,7 +21,6 @@ governing permissions and limitations under the License.
 
   --spectrum-treeview-section-spacing: var(--spectrum-treeview-item-indentation-medium);
   --spectrum-treeview-heading-font-weight: var(--spectrum-bold-font-weight);
-  --spectrum-treeview-item-hover-offset: var(--spectrum-spacing-50);
 
   --spectrum-treeview-item-border-size: var(--spectrum-border-width-200);
   --spectrum-treeview-item-border-size-selected: 1px;
@@ -58,6 +57,7 @@ governing permissions and limitations under the License.
 }
 
 .spectrum-TreeView--sizeS {
+  --spectrum-treeview-item-min-block-size: var(--spectrum-component-height-75);
   --spectrum-treeview-item-text-padding-block-start: var(--spectrum-spacing-75);
   --spectrum-treeview-item-indentation: var(--spectrum-treeview-item-indentation-small);
   --spectrum-treeview-item-padding-block-end: var(--spectrum-component-edge-to-text-75);
@@ -191,7 +191,7 @@ governing permissions and limitations under the License.
   white-space: nowrap;
   overflow: hidden;
 
-  /* Background for hover, focus, and selection. */
+  /* Background for hover, focus, and selection, that extends the full width of the list. */
   &:before {
     content: '\00a0';
 
@@ -200,10 +200,7 @@ governing permissions and limitations under the License.
     inset-inline-start: var(--mod-treeview-item-border-size, var(--spectrum-treeview-item-border-size));
     inset-inline-end: 0;
 
-    min-block-size: calc(
-      var(--mod-treeview-item-min-block-size, var(--spectrum-treeview-item-min-block-size)) -
-      var(--mod-treeview-item-hover-offset, var(--spectrum-treeview-item-hover-offset)) * 2
-    );
+    min-block-size: var(--mod-treeview-item-min-block-size, var(--spectrum-treeview-item-min-block-size));
     padding-block-start: calc(
       var(--mod-treeview-item-text-padding-block-start, var(--spectrum-treeview-item-text-padding-block-start)) -
       var(--mod-treeview-item-border-size, var(--spectrum-treeview-item-border-size))

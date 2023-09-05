@@ -21,7 +21,6 @@
 | `--mod-treeview-item-border-radius`                   |
 | `--mod-treeview-item-border-size`                     |
 | `--mod-treeview-item-border-size-selected`            |
-| `--mod-treeview-item-hover-offset`                    |
 | `--mod-treeview-item-icon-color`                      |
 | `--mod-treeview-item-icon-color-disabled`             |
 | `--mod-treeview-item-icon-color-focus`                |
