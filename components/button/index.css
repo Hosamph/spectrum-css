@@ -89,7 +89,22 @@ governing permissions and limitations under the License.
   --spectrum-button-padding-label-to-icon: var(--spectrum-text-to-visual-300);
   --spectrum-button-top-to-text: var(--spectrum-button-top-to-text-extra-large);
   --spectrum-button-bottom-to-text: var(--spectrum-button-bottom-to-text-extra-large);
+}
 
+/* addresses differences in lineheight in firefox */
+@supports (-moz-appearance:none){
+  .spectrum-Button--sizeS {
+    --mod-button-top-to-text: 4px;
+  }
+  .spectrum-Button--sizeM {
+    --mod-button-top-to-text: 6px;
+  }
+  .spectrum-Button--sizeL {
+    --mod-button-top-to-text: 9px;
+  }
+  .spectrum-Button--sizeXL {
+    --mod-button-top-to-text: 13px;
+  }
 }
 
 .spectrum-Button {
@@ -266,7 +281,7 @@ a.spectrum-Button {
         .spectrum-Button-label {
           forced-color-adjust: none;
         }
-        
+
       }
     }
   }
