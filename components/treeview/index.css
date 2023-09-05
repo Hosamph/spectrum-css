@@ -247,6 +247,7 @@ governing permissions and limitations under the License.
 }
 
 .spectrum-TreeView-itemIcon {
+  position: relative;
   vertical-align: top;
   margin-inline-end: var(--mod-treeview-item-icon-gap, var(--spectrum-treeview-item-icon-gap));
   color: var(--mod-treeview-item-icon-color, var(--spectrum-treeview-item-icon-color));
