@@ -29,7 +29,7 @@
 | `--mod-treeview-item-icon-color-selected`             |
 | `--mod-treeview-item-icon-gap`                        |
 | `--mod-treeview-item-indentation`                     |
-| `--mod-treeview-item-min-height`                      |
+| `--mod-treeview-item-min-block-size`                  |
 | `--mod-treeview-item-padding-block-end`               |
 | `--mod-treeview-item-padding-block-start`             |
 | `--mod-treeview-item-padding-default`                 |
@@ -42,4 +42,5 @@
 | `--mod-treeview-item-text-color-selected`             |
 | `--mod-treeview-item-text-padding-block-end`          |
 | `--mod-treeview-item-text-padding-block-start`        |
+| `--mod-treeview-link-min-block-size-thumbnail`        |
 | `--mod-treeview-section-spacing`                      |

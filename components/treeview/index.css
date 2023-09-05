@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 */
 
 .spectrum-TreeView {
-  --spectrum-treeview-item-min-height: var(--spectrum-component-height-75);
+  --spectrum-treeview-item-min-block-size: var(--spectrum-component-height-75);
   --spectrum-treeview-item-indentation: var(--spectrum-treeview-item-indentation-medium);
   --spectrum-treeview-item-padding-default: 0px;
   --spectrum-treeview-item-padding-block-end: var(--spectrum-component-edge-to-text-100);
@@ -68,7 +68,7 @@ governing permissions and limitations under the License.
 .spectrum-TreeView--sizeL {
   --spectrum-treeview-item-text-padding-block-end: var(--spectrum-component-bottom-to-text-200);
   --spectrum-treeview-item-indentation: var(--spectrum-treeview-item-indentation-large);
-  --spectrum-treeview-item-min-height: var(--spectrum-component-height-100);
+  --spectrum-treeview-item-min-block-size: var(--spectrum-component-height-100);
   --spectrum-treeview-item-padding-block-end: var(--spectrum-component-edge-to-text-200);
   --spectrum-treeview-item-affordance-size: var(--spectrum-component-height-200);
   --spectrum-treeview-item-icon-gap: var(--spectrum-text-to-visual-200);
@@ -78,7 +78,7 @@ governing permissions and limitations under the License.
   --spectrum-treeview-item-text-padding-block-start: var(--spectrum-component-top-to-text-300);
   --spectrum-treeview-item-text-padding-block-end: var(--spectrum-component-bottom-to-text-300);
   --spectrum-treeview-item-indentation: var(--spectrum-treeview-item-indentation-extra-large);
-  --spectrum-treeview-item-min-height: var(--spectrum-component-height-200);
+  --spectrum-treeview-item-min-block-size: var(--spectrum-component-height-200);
   --spectrum-treeview-item-padding-block-end: var(--spectrum-component-edge-to-text-300);
   --spectrum-treeview-item-affordance-size: var(--spectrum-component-height-300);
   --spectrum-treeview-item-icon-gap: var(--spectrum-text-to-visual-300);
@@ -176,11 +176,11 @@ governing permissions and limitations under the License.
   display: flex;
   flex-direction: row;
   align-items: center;
-  
-  min-height: var(--mod-treeview-item-min-height, var(--spectrum-treeview-item-min-height));
+
+  min-block-size: var(--mod-treeview-item-min-block-size, var(--spectrum-treeview-item-min-block-size));
   padding-block: var(--mod-treeview-item-text-padding-block-start, var(--spectrum-treeview-item-text-padding-block-start)) var(--mod-treeview-item-text-padding-block-end, var(--spectrum-treeview-item-text-padding-block-end));
   padding-inline: var(--mod-treeview-item-affordance-size, var(--spectrum-treeview-item-affordance-size));
-  
+
   color: var(--mod-treeview-item-text-color, var(--spectrum-treeview-item-text-color));
 
   text-decoration: none;
@@ -195,12 +195,13 @@ governing permissions and limitations under the License.
   &:before {
     content: '\00a0';
 
+    box-sizing: border-box;
     position: absolute;
     inset-inline-start: var(--mod-treeview-item-border-size, var(--spectrum-treeview-item-border-size));
     inset-inline-end: 0;
 
-    block-size: calc(
-      var(--mod-treeview-item-min-height, var(--spectrum-treeview-item-min-height)) -
+    min-block-size: calc(
+      var(--mod-treeview-item-min-block-size, var(--spectrum-treeview-item-min-block-size)) -
       var(--mod-treeview-item-hover-offset, var(--spectrum-treeview-item-hover-offset)) * 2
     );
     padding-block-start: calc(
@@ -352,8 +353,13 @@ governing permissions and limitations under the License.
   }
 
   .spectrum-TreeView-itemLink {
-    box-sizing: content-box;
-    block-size: var(--mod-treeview-item-affordance-size, var(--spectrum-treeview-item-affordance-size));
+    --spectrum-treeview-link-min-block-size: calc(
+      var(--mod-treeview-item-affordance-size, var(--spectrum-treeview-item-affordance-size)) +
+      var(--mod-treeview-item-text-padding-block-start, var(--spectrum-treeview-item-text-padding-block-start)) +
+      (var(--mod-treeview-item-text-padding-block-end, var(--spectrum-treeview-item-text-padding-block-end)) - var(--mod-treeview-item-border-size, var(--spectrum-treeview-item-border-size)))
+    );
+
+    min-block-size: var(--mod-treeview-link-min-block-size-thumbnail, var(--spectrum-treeview-link-min-block-size));
     padding-block-start: var(--mod-treeview-item-text-padding-block-start, var(--spectrum-treeview-item-text-padding-block-start));
     padding-block-end: calc(
       var(--mod-treeview-item-text-padding-block-end, var(--spectrum-treeview-item-text-padding-block-end)) - 
@@ -361,7 +367,7 @@ governing permissions and limitations under the License.
     );
 
     &:before {
-      block-size: var(--mod-treeview-item-affordance-size, var(--spectrum-treeview-item-affordance-size));
+      min-block-size: var(--mod-treeview-link-min-block-size-thumbnail, var(--spectrum-treeview-link-min-block-size));
     }
   }
 }
