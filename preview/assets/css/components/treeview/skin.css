@@ -1,0 +1,80 @@
+.spectrum-TreeView{
+  --spectrum-treeview-item-background-color-selected:var(--spectrum-alias-highlight-selected);
+
+  --spectrum-treeview-item-background-color-quiet-selected:var(--spectrum-alias-highlight-hover);
+  --spectrum-treeview-item-icon-color:var(--spectrum-alias-icon-color, var(--spectrum-global-color-gray-700));
+  --spectrum-treeview-item-icon-color-hover:var(--spectrum-alias-icon-color-hover, var(--spectrum-global-color-gray-900));
+  --spectrum-treeview-item-icon-color-focus:var(--spectrum-alias-icon-color-key-focus, var(--spectrum-global-color-gray-900));
+  --spectrum-treeview-item-icon-color-selected:var(--spectrum-alias-icon-color-selected-neutral, var(--spectrum-global-color-gray-900));
+  --spectrum-treeview-item-icon-color-disabled:var(--spectrum-alias-icon-color-disabled, var(--spectrum-global-color-gray-400));
+  --spectrum-treeview-m-item-text-color-selected:var(--spectrum-alias-text-color-selected-neutral, var(--spectrum-global-color-gray-900));
+}
+
+.spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink{
+      color:var(--spectrum-treeview-m-item-text-color-disabled, var(--spectrum-alias-component-text-color-disabled));
+    }
+
+.spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon{
+        color:var(--spectrum-treeview-item-icon-color-disabled);
+      }
+
+.spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink{
+      color:var(--spectrum-treeview-m-item-text-color-selected);
+    }
+
+.spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink:before{
+        background-color:var(--spectrum-treeview-item-background-color-selected);
+        border-color:var(--spectrum-treeview-m-item-border-color-key-focus, var(--spectrum-alias-border-color-key-focus));
+      }
+
+.spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink .spectrum-TreeView-itemIcon{
+        color:var(--spectrum-treeview-item-icon-color-selected);
+      }
+
+.spectrum-TreeView-item.is-drop-target > .spectrum-TreeView-itemLink:before{
+        background-color:var(--spectrum-alias-highlight-selected);
+        border-color:var(--spectrum-treeview-m-item-border-color-key-focus, var(--spectrum-alias-border-color-key-focus));
+      }
+
+.spectrum-TreeView--quiet .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink:before{
+          background-color:var(--spectrum-treeview-item-background-color-quiet-selected);
+          border-color:transparent;
+        }
+
+.spectrum-TreeView--quiet .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink:focus-visible:before{
+            border-color:var(--spectrum-treeview-m-item-border-color-key-focus, var(--spectrum-alias-border-color-key-focus));
+          }
+
+.spectrum-TreeView-itemIcon{
+  color:var(--spectrum-treeview-item-icon-color);
+}
+
+.spectrum-TreeView-itemLink{
+  color:var(--spectrum-treeview-m-item-text-color, var(--spectrum-alias-component-text-color-default));
+}
+
+.spectrum-TreeView-itemLink:hover{
+    color:var(--spectrum-treeview-m-item-text-color-hover, var(--spectrum-alias-component-text-color-hover));
+  }
+
+.spectrum-TreeView-itemLink:hover:before{
+      background-color:var(--spectrum-treeview-m-item-background-color-hover, var(--spectrum-global-color-gray-200));
+    }
+
+.spectrum-TreeView-itemLink:hover .spectrum-TreeView-itemIcon{
+      color:var(--spectrum-treeview-item-icon-color-hover);
+    }
+
+.spectrum-TreeView-itemLink:focus-visible{
+    color:var(--spectrum-treeview-m-item-text-color-mouse-focus, var(--spectrum-alias-component-text-color-mouse-focus));
+  }
+
+.spectrum-TreeView-itemLink:focus-visible::before{
+      background-color:var(--spectrum-treeview-m-item-background-color-key-focus, var(--spectrum-global-color-gray-200));
+
+      border-color:var(--spectrum-treeview-m-item-border-color-key-focus, var(--spectrum-alias-border-color-key-focus));
+    }
+
+.spectrum-TreeView-itemLink:focus-visible .spectrum-TreeView-itemIcon{
+      color:var(--spectrum-treeview-item-icon-color-focus);
+    }

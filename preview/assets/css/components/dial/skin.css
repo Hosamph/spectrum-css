@@ -1,0 +1,80 @@
+.spectrum-Dial{
+  --spectrum-dial-label-text-color:var(--spectrum-alias-label-text-color, var(--spectrum-global-color-gray-700));
+  --spectrum-dial-label-text-color-disabled:var(--spectrum-alias-label-text-color, var(--spectrum-global-color-gray-700));
+  --spectrum-dial-handle-border-color-disabled:var(--spectrum-alias-icon-color-disabled, var(--spectrum-global-color-gray-400));
+}
+
+.spectrum-Dial-labelContainer{
+  color:var(--spectrum-dial-label-text-color);
+}
+
+.spectrum-Dial-handle{
+  box-shadow:none;
+  border-color:var(--spectrum-dial-small-handle-marker-color, var(--spectrum-global-color-gray-700));
+}
+
+.spectrum-Dial-handle:before{
+    display:none;
+  }
+
+.spectrum-Dial-handle::after{
+    background-color:var(--spectrum-dial-handle-marker-color, var(--spectrum-global-color-gray-700));
+  }
+
+.spectrum-Dial-handle:hover{
+    border-color:var(--spectrum-dial-border-color-hover, var(--spectrum-global-color-gray-800));
+  }
+
+.spectrum-Dial-handle:hover::after{
+      background-color:var(--spectrum-dial-handle-marker-color-hover, var(--spectrum-global-color-gray-800));
+    }
+
+.spectrum-Dial-handle.is-focused{
+    background-color:var(--spectrum-dial-handle-marker-color-key-focus, var(--spectrum-global-color-gray-50));
+
+    border-color:var(--spectrum-dial-handle-marker-color-key-focus, var(--spectrum-global-color-gray-50));
+  }
+
+.spectrum-Dial-handle.is-focused::after{
+      background-color:var(--spectrum-dial-handle-marker-color-key-focus, var(--spectrum-global-color-gray-50));
+    }
+
+.spectrum-Dial-handle:active,
+  .spectrum-Dial-handle.is-dragged{
+    background-color:var(--spectrum-dial-border-color-hover, var(--spectrum-global-color-gray-800));
+    border-color:var(--spectrum-dial-border-color-hover, var(--spectrum-global-color-gray-800));
+  }
+
+.spectrum-Dial-handle:active::after, .spectrum-Dial-handle.is-dragged::after{
+      background-color:var(--spectrum-dial-handle-marker-color-key-focus, var(--spectrum-global-color-gray-50));
+    }
+
+.spectrum-Dial-controls::before,
+  .spectrum-Dial-controls::after{
+    background-color:var(--spectrum-dial-min-max-tick-color, var(--spectrum-global-color-gray-600));
+  }
+
+.spectrum-Dial.is-disabled .spectrum-Dial-labelContainer{
+      color:var(--spectrum-dial-label-text-color-disabled);
+    }
+
+.spectrum-Dial.is-disabled .spectrum-Dial-controls::after,
+      .spectrum-Dial.is-disabled .spectrum-Dial-controls::before{
+        background-color:var(--spectrum-dial-handle-border-color-disabled);
+      }
+
+.spectrum-Dial.is-disabled .spectrum-Dial-handle{
+      border-color:var(--spectrum-dial-handle-border-color-disabled);
+      background:var(--spectrum-alias-background-color-default, var(--spectrum-global-color-gray-100));
+    }
+
+.spectrum-Dial.is-disabled .spectrum-Dial-handle:hover,
+      .spectrum-Dial.is-disabled .spectrum-Dial-handle:active{
+        border-color:var(--spectrum-dial-handle-border-color-disabled);
+        background:var(--spectrum-dial-handle-border-color-disabled);
+      }
+
+.spectrum-Dial.is-disabled .spectrum-Dial-handle::after,
+      .spectrum-Dial.is-disabled .spectrum-Dial-handle::before{
+        background-color:var(--spectrum-dial-handle-border-color-disabled);
+      }

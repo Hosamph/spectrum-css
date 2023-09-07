@@ -1,0 +1,29 @@
+.spectrum-CoachMarkPopover{
+  background-color:var(--spectrum-coachmark-background-color, var(--spectrum-global-color-gray-50));
+  border-color:var(--spectrum-coachmark-border-color, var(--spectrum-alias-border-color-dark));
+  box-shadow:0 1px 4px var(--spectrum-coachmark-shadow-color, var(--spectrum-alias-dropshadow-color));
+}
+
+.spectrum-CoachMarkPopover-title{
+  color:var(--spectrum-coachmark-title-text-color, var(--spectrum-alias-heading-text-color));
+}
+
+.spectrum-CoachMarkPopover-step{
+  color:var(--spectrum-coachmark-step-text-color, var(--spectrum-alias-label-text-color));
+}
+
+.spectrum-CoachMarkPopover-content{
+  color:var(--spectrum-coachmark-content-text-color, var(--spectrum-alias-text-color));
+}
+
+.spectrum-CoachMarkIndicator-ring{
+  border-color:var(--spectrum-coachmark-indicator-ring-default-color, var(--spectrum-alias-focus-color));
+}
+
+.spectrum-CoachMarkIndicator--light .spectrum-CoachMarkIndicator-ring{
+  border-color:var(--spectrum-coachmark-indicator-ring-low-contrast-color, var(--spectrum-global-color-gray-50));
+}
+
+.spectrum-CoachMarkIndicator--dark .spectrum-CoachMarkIndicator-ring{
+  border-color:var(--spectrum-coachmark-indicator-ring-high-contrast-color, var(--spectrum-global-color-gray-900));
+}

@@ -1,0 +1,8 @@
+.spectrum-DropIndicator{
+  background:var(--spectrum-dropindicator-border-color, var(--spectrum-global-color-blue-400));
+}
+
+.spectrum-DropIndicator:before,
+  .spectrum-DropIndicator:after{
+    border-color:var(--spectrum-dropindicator-circle-border-color, var(--spectrum-global-color-blue-400));
+  }

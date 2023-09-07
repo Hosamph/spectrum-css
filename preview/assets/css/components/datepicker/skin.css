@@ -1,0 +1,35 @@
+.spectrum-DatePicker--quiet .spectrum-DatePicker-button,
+    .spectrum-DatePicker--quiet .spectrum-DatePicker-button:hover,
+    .spectrum-DatePicker--quiet .spectrum-DatePicker-button:focus,
+    .spectrum-DatePicker--quiet .spectrum-DatePicker-button:active,
+    .spectrum-DatePicker--quiet .spectrum-DatePicker-button.is-selected,
+    .spectrum-DatePicker--quiet .spectrum-DatePicker-button.is-invalid{
+      border-color:var(--spectrum-textfield-m-quiet-texticon-border-color, var(--spectrum-alias-input-border-color-default));
+    }
+
+.spectrum-DatePicker--quiet .spectrum-DatePicker-button:disabled,
+    .spectrum-DatePicker--quiet .spectrum-DatePicker-button:disabled:hover{
+      border-color:var(--spectrum-textfield-m-quiet-texticon-border-color-disabled, var(--spectrum-alias-input-border-color-quiet-disabled));
+    }
+
+.spectrum-DatePicker--quiet .spectrum-DatePicker-button:disabled:not(.is-open) .spectrum-PickerButton-fill{
+        border-color:transparent;
+      }
+
+.spectrum-DatePicker--quiet .spectrum-DatePicker-button:not(:disabled):not(.is-open) .spectrum-PickerButton-fill{
+        background-color:transparent;
+      }
+
+.spectrum-DatePicker--quiet:hover:not(.is-focused):not(.is-keyboardFocused):not(.is-disabled) .spectrum-DatePicker-input,
+    .spectrum-DatePicker--quiet:hover:not(.is-focused):not(.is-keyboardFocused):not(.is-disabled) .spectrum-DatePicker-button{
+      border-color:var(--spectrum-textfield-m-quiet-texticon-border-color-hover, var(--spectrum-alias-input-border-color-hover));
+    }
+
+.spectrum-DatePicker--quiet.is-invalid .spectrum-DatePicker-input,
+    .spectrum-DatePicker--quiet.is-invalid .spectrum-DatePicker-button{
+      border-color:var(--spectrum-textfield-m-quiet-texticon-border-color-invalid, var(--spectrum-alias-input-border-color-invalid-default));
+    }
+
+.spectrum-DatePicker.is-disabled .spectrum-DatePicker-rangeDash{
+  color:var(--spectrum-alias-text-color-disabled, var(--spectrum-global-color-gray-500));
+}

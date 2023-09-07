@@ -1,0 +1,209 @@
+/*!
+Copyright 2023 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+.spectrum-Stepper:hover:not(.is-disabled):not(.is-invalid):not(.is-focused):not(.is-keyboardFocused) .spectrum-Stepper-stepUp,
+    .spectrum-Stepper:hover:not(.is-disabled):not(.is-invalid):not(.is-focused):not(.is-keyboardFocused) .spectrum-Stepper-stepDown,
+    .spectrum-Stepper:hover:not(.is-disabled):not(.is-invalid):not(.is-focused):not(.is-keyboardFocused) .spectrum-Stepper-input{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-hover);
+    }
+
+.spectrum-Stepper.is-focused{
+    border-color:var(--spectrum-textfield-m-texticon-border-color-mouse-focus);
+  }
+
+.spectrum-Stepper.is-focused .spectrum-Stepper-stepUp,
+    .spectrum-Stepper.is-focused .spectrum-Stepper-stepDown{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-mouse-focus);
+    }
+
+.spectrum-Stepper.is-focused .spectrum-Stepper-input{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-mouse-focus);
+      box-shadow:none;
+    }
+
+.spectrum-Stepper.is-focused.is-invalid{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-invalid-mouse-focus);
+    }
+
+.spectrum-Stepper.is-focused.is-invalid .spectrum-Stepper-stepUp,
+      .spectrum-Stepper.is-focused.is-invalid .spectrum-Stepper-stepDown{
+        border-color:var(--spectrum-textfield-m-texticon-border-color-invalid-mouse-focus);
+      }
+
+.spectrum-Stepper.is-focused.is-invalid .spectrum-Stepper-input{
+        border-color:var(--spectrum-textfield-m-texticon-border-color-invalid-mouse-focus);
+      }
+
+.spectrum-Stepper.is-keyboardFocused{
+    box-shadow:0 0 0 1px var(--spectrum-textfield-m-texticon-border-color-key-focus);
+  }
+
+.spectrum-Stepper.is-keyboardFocused .spectrum-Stepper-input,
+    .spectrum-Stepper.is-keyboardFocused .spectrum-Stepper-buttons{
+      box-shadow:0 0 0 1px var(--spectrum-textfield-m-texticon-border-color-key-focus);
+    }
+
+.spectrum-Stepper.is-keyboardFocused .spectrum-Stepper-input,
+    .spectrum-Stepper.is-keyboardFocused .spectrum-Stepper-stepUp,
+    .spectrum-Stepper.is-keyboardFocused .spectrum-Stepper-stepDown{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-key-focus);
+    }
+
+.spectrum-Stepper.is-keyboardFocused.is-invalid{
+      box-shadow:0 0 0 1px var(--spectrum-textfield-m-texticon-border-color-invalid-key-focus);
+    }
+
+.spectrum-Stepper.is-keyboardFocused.is-invalid .spectrum-Stepper-stepUp,
+      .spectrum-Stepper.is-keyboardFocused.is-invalid .spectrum-Stepper-stepDown{
+        border-color:var(--spectrum-textfield-m-texticon-border-color-invalid-key-focus);
+      }
+
+.spectrum-Stepper.is-keyboardFocused.is-invalid .spectrum-Stepper-buttons{
+        box-shadow:0 0 0 1px var(--spectrum-textfield-m-texticon-border-color-invalid-key-focus);
+      }
+
+.spectrum-Stepper.is-invalid .spectrum-Stepper-stepUp,
+    .spectrum-Stepper.is-invalid .spectrum-Stepper-stepDown{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-invalid);
+    }
+
+.spectrum-Stepper.is-invalid .spectrum-Stepper-input{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-invalid);
+    }
+
+.spectrum-Stepper.is-invalid.is-keyboardFocused .spectrum-Stepper-input{
+        border-color:var(--spectrum-textfield-m-texticon-border-color-invalid-key-focus);
+        box-shadow:0 0 0 1px var(--spectrum-textfield-m-texticon-border-color-invalid-key-focus);
+      }
+
+.spectrum-Stepper.is-invalid.is-keyboardFocused .spectrum-Stepper-buttons{
+        box-shadow:0 0 0 1px var(--spectrum-textfield-m-texticon-border-color-invalid-key-focus);
+      }
+
+.spectrum-Stepper.is-disabled .spectrum-Stepper-stepUp,
+    .spectrum-Stepper.is-disabled .spectrum-Stepper-stepDown{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-disabled);
+    }
+
+.spectrum-Stepper-stepUp,
+.spectrum-Stepper-stepDown{
+  border-color:var(--spectrum-textfield-m-texticon-border-color);
+}
+
+.spectrum-Stepper-stepUp:disabled, .spectrum-Stepper-stepDown:disabled{
+    border-color:var(--spectrum-textfield-m-texticon-border-color-disabled);
+  }
+
+.spectrum-Stepper--quiet.is-disabled .spectrum-Stepper-stepUp,
+    .spectrum-Stepper--quiet.is-disabled .spectrum-Stepper-stepDown{
+      border-color:var(--spectrum-textfield-m-quiet-texticon-border-color-disabled);
+    }
+
+.spectrum-Stepper--quiet .spectrum-Stepper-stepUp,
+  .spectrum-Stepper--quiet .spectrum-Stepper-stepDown{
+    border-color:var(--spectrum-textfield-m-quiet-texticon-border-color);
+  }
+
+.spectrum-Stepper--quiet .spectrum-Stepper-stepUp:disabled, .spectrum-Stepper--quiet .spectrum-Stepper-stepDown:disabled{
+      border-color:var(--spectrum-textfield-m-quiet-texticon-border-color-disabled);
+    }
+
+.spectrum-Stepper--quiet .spectrum-Stepper-input{
+    box-shadow:none;
+  }
+
+.spectrum-Stepper--quiet.is-invalid .spectrum-Stepper-input{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-invalid);
+    }
+
+.spectrum-Stepper--quiet.is-invalid .spectrum-Stepper-stepDown{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-invalid);
+    }
+
+.spectrum-Stepper--quiet.is-keyboardFocused,
+  .spectrum-Stepper--quiet.is-focused{
+    box-shadow:none;
+  }
+
+.spectrum-Stepper--quiet.is-keyboardFocused .spectrum-Stepper-buttons,
+    .spectrum-Stepper--quiet.is-keyboardFocused .spectrum-Stepper-input,
+    .spectrum-Stepper--quiet.is-focused .spectrum-Stepper-buttons,
+    .spectrum-Stepper--quiet.is-focused .spectrum-Stepper-input{
+      box-shadow:0 1px 0 0 var(--spectrum-textfield-m-texticon-border-color-key-focus);
+    }
+
+.spectrum-Stepper--quiet.is-keyboardFocused .spectrum-Stepper-stepDown, .spectrum-Stepper--quiet.is-focused .spectrum-Stepper-stepDown{
+      border-color:var(--spectrum-textfield-m-texticon-border-color-key-focus);
+    }
+
+.spectrum-Stepper--quiet.is-keyboardFocused.is-invalid, .spectrum-Stepper--quiet.is-focused.is-invalid{
+      box-shadow:none;
+    }
+
+.spectrum-Stepper--quiet.is-keyboardFocused.is-invalid .spectrum-Stepper-input,
+      .spectrum-Stepper--quiet.is-keyboardFocused.is-invalid .spectrum-Stepper-buttons,
+      .spectrum-Stepper--quiet.is-focused.is-invalid .spectrum-Stepper-input,
+      .spectrum-Stepper--quiet.is-focused.is-invalid .spectrum-Stepper-buttons{
+        box-shadow:0 1px 0 0 var(--spectrum-textfield-m-texticon-border-color-invalid);
+      }
+
+.spectrum-Stepper--quiet.is-keyboardFocused.is-invalid .spectrum-Stepper-input, .spectrum-Stepper--quiet.is-focused.is-invalid .spectrum-Stepper-input{
+        border-color:var(--spectrum-textfield-m-texticon-border-color-invalid);
+      }
+
+.spectrum-Stepper--quiet.is-keyboardFocused.is-invalid .spectrum-Stepper-stepDown, .spectrum-Stepper--quiet.is-focused.is-invalid .spectrum-Stepper-stepDown{
+        border-color:var(--spectrum-textfield-m-texticon-border-color-invalid);
+      }
+
+@media (forced-colors: active){
+  .spectrum-Stepper{
+    --spectrum-textfield-m-quiet-texticon-border-color-disabled:GrayText;
+    --spectrum-textfield-m-texticon-border-color-disabled:GrayText;
+    --spectrum-textfield-m-texticon-border-color-hover:Highlight;
+    --spectrum-textfield-m-texticon-border-color-invalid:Highlight;
+    --spectrum-textfield-m-texticon-border-color-invalid-key-focus:Highlight;
+    --spectrum-textfield-m-texticon-border-color-invalid-mouse-focus:Highlight;
+    --spectrum-textfield-m-texticon-border-color-key-focus:Highlight;
+    --spectrum-textfield-m-texticon-border-color-mouse-focus:Highlight;
+    --spectrum-textfield-m-texticon-focus-ring-border-width:2px;
+  }
+
+    .spectrum-Stepper.is-keyboardFocused{
+      outline:2px solid var(--spectrum-textfield-m-texticon-border-color-key-focus);
+    }
+      .spectrum-Stepper.is-keyboardFocused .spectrum-Stepper-input,
+      .spectrum-Stepper.is-keyboardFocused .spectrum-Stepper-buttons{
+        --spectrum-textfield-m-texticon-background-color:Canvas;
+        --spectrum-textfield-m-texticon-border-color:ButtonText;
+        --spectrum-textfield-m-texticon-text-color:CanvasText;
+      }
+
+      .spectrum-Stepper.spectrum-Stepper--quiet.is-keyboardFocused,
+      .spectrum-Stepper.spectrum-Stepper--quiet.is-focused{
+        outline:none;
+      }
+
+        .spectrum-Stepper.spectrum-Stepper--quiet.is-keyboardFocused .spectrum-Stepper-buttons,
+        .spectrum-Stepper.spectrum-Stepper--quiet.is-keyboardFocused .spectrum-Stepper-input,
+        .spectrum-Stepper.spectrum-Stepper--quiet.is-focused .spectrum-Stepper-buttons,
+        .spectrum-Stepper.spectrum-Stepper--quiet.is-focused .spectrum-Stepper-input{
+          forced-color-adjust:none;
+          box-shadow:0 var(--spectrum-textfield-m-texticon-focus-ring-border-width) 0 0 var(--spectrum-textfield-m-texticon-border-color-key-focus);
+        }
+          .spectrum-Stepper.spectrum-Stepper--quiet.is-keyboardFocused.is-invalid .spectrum-Stepper-input,
+          .spectrum-Stepper.spectrum-Stepper--quiet.is-keyboardFocused.is-invalid .spectrum-Stepper-buttons,
+          .spectrum-Stepper.spectrum-Stepper--quiet.is-focused.is-invalid .spectrum-Stepper-input,
+          .spectrum-Stepper.spectrum-Stepper--quiet.is-focused.is-invalid .spectrum-Stepper-buttons{
+            forced-color-adjust:none;
+            box-shadow:0 var(--spectrum-textfield-m-texticon-focus-ring-border-width) 0 0 var(--spectrum-textfield-m-texticon-border-color-invalid);
+          }
+}
